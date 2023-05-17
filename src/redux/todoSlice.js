@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getTodosAsync = createAsyncThunk('/todos/getTodosAsync', async (payload) => {
-    const res = await fetch(`http://localhost:3080/todo/${payload.userId}`, {
+    const res = await fetch(`https://todo-server-production-f1f5.up.railway.app/todo/${payload.userId}`, {
         headers: {
             authorization: "Bearer " + payload.accessToken
         }
@@ -15,7 +15,7 @@ export const getTodosAsync = createAsyncThunk('/todos/getTodosAsync', async (pay
 })
 
 export const addTodoAsync = createAsyncThunk('/todo/addTodoAsync', async (payload) => {
-    const res = await fetch(`http://localhost:3080/todo/create/`, {
+    const res = await fetch(`https://todo-server-production-f1f5.up.railway.app/todo/create/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ export const addTodoAsync = createAsyncThunk('/todo/addTodoAsync', async (payloa
 })
 
 export const completedTodoAsync = createAsyncThunk('/todo/completedTodoAsync', async (payload) => {
-    const res = await fetch(`http://localhost:3080/todo/${payload.id}`, {
+    const res = await fetch(`https://todo-server-production-f1f5.up.railway.app/todo/${payload.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ export const completedTodoAsync = createAsyncThunk('/todo/completedTodoAsync', a
     }
 })
 export const deleteTodoAsync = createAsyncThunk('todo/deleteTodoAsync', async (payload) => {
-    const res = await fetch(`http://localhost:3080/todo/${payload.id}`, {
+    const res = await fetch(`https://todo-server-production-f1f5.up.railway.app/todo/${payload.id}`, {
         method: 'DELETE',
         headers: {
             'Content-type': 'application/json',

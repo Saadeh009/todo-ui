@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const getUsersAsync = createAsyncThunk('/users/getUsersAsync', async () => {
-    const res = await fetch('http://localhost:3080/users')
+    const res = await fetch('https://todo-server-production-f1f5.up.railway.app/users')
     if (res.ok) {
         const data = await res.json()
         return { data }
     }
 })
 export const loginUserAsync = createAsyncThunk('/users/loginUserAsync', async (payload) => {
-    const res = await fetch('http://localhost:3080/user/login', {
+    const res = await fetch('https://todo-server-production-f1f5.up.railway.app/user/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -23,7 +23,7 @@ export const loginUserAsync = createAsyncThunk('/users/loginUserAsync', async (p
 })
 
 export const addUserAsync = createAsyncThunk('/users/addUserAsync', async (payload) => {
-    const res = await fetch('http://localhost:3080/user/signup', {
+    const res = await fetch('https://todo-server-production-f1f5.up.railway.app/user/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
